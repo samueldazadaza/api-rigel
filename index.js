@@ -1,10 +1,15 @@
 import express from "express";
 import axios from "axios";
 import * as cheerio from "cheerio";
+import cors from "cors";
 const app = express();
 
+const corsOptions = { // para quitar problema de cors
+    origin: '*'
+}
 
-app.get("/", async (req, res) => {
+
+app.get("/", cors(), async (req, res) => {
     console.log("entro al try😎")
     try {
         //const {data} = await axios.get("https://www.bcentral.cl/inicio")

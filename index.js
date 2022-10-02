@@ -2,8 +2,9 @@ import express from "express";
 import axios from "axios"
 const app = express();
 
-app.get("/", async (req, res) => {
 
+app.get("/", async (req, res) => {
+    console.log("entro al try😎")
     try {
         //const {data} = await axios.get("https://www.bcentral.cl/inicio")
         const {data} = await axios.get("http://rigel.greenmovil.com.co:8080/RigelpbWS/disponibilidadFlota/todos?key=JM8xH8zNHX7XGsUe8rkDf")

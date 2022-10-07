@@ -19,7 +19,7 @@ app.get("/", cors(), async (req, res) => {
         //const selectorDolar = "#_BcentralIndicadoresViewer_INSTANCE_pLcePZ0Eybi8_myTooltipDelegate > div > div > div.fin-indicators-col1 > div > div > div:nth-child(1) > div > p.basic-text.fs-2.f-opensans-bold.text-center.c-blue-nb-2"
 
         //res.json({ dolar: $(selectorDolar).text() });
-        res.json( data );
+        res.json( {data} );
     } catch (error) {
         res.json({error})
     }

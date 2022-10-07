@@ -14,12 +14,12 @@ app.get("/", cors(), async (req, res) => {
     try {
         //const {data} = await axios.get("https://www.bcentral.cl/inicio")
         const {dataits} = await axios.get("http://rigel.greenmovil.com.co:8080/RigelpbWS/disponibilidadFlota/todos?key=JM8xH8zNHX7XGsUe8rkDf")
-        const {dataits2} = await dataits.filter dataits.filter(system_name => system_name == "IT-ITS"); // return implicito
+        //const {dataits2} = await dataits.filter dataits.filter(system_name => system_name == "IT-ITS"); // return implicito
         //const $ = cheerio.load(data)
         //const selectorDolar = "#_BcentralIndicadoresViewer_INSTANCE_pLcePZ0Eybi8_myTooltipDelegate > div > div > div.fin-indicators-col1 > div > div > div:nth-child(1) > div > p.basic-text.fs-2.f-opensans-bold.text-center.c-blue-nb-2"
 
         //res.json({ dolar: $(selectorDolar).text() });
-        res.json([ dataits, dataits2 ]);
+        res.json( dataits );
     } catch (error) {
         res.json({error})
     }

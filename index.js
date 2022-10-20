@@ -15,41 +15,15 @@ app.get("/", cors(), async (req, res) => {
         //const {data} = await axios.get("https://www.bcentral.cl/inicio")
         const {data} = await axios.get("http://rigel.greenmovil.com.co:8080/RigelpbWS/disponibilidadFlota/todos?key=JM8xH8zNHX7XGsUe8rkDf")
 
-            //filtrar area its en general
-            //const data2 = datarigel.filter(item => item.system_name === 'IT-ITS')
-            const dataTecnologia = await data.data.filter(item => item.system_name === 'IT-ITS') 
-            const dataSirci = await data.data.filter(item => item.system_name === 'IT-SIRCI') 
-            //const datarigelsirci = datarigel.filter(item => item.system_name === 'IT-SIRCI')
-            const areaItTotal = [...dataTecnologia, ...dataSirci] //operador de propagación para fusionar objetos en JavaScript
-
-
         //const $ = cheerio.load(data)
         //const selectorDolar = "#_BcentralIndicadoresViewer_INSTANCE_pLcePZ0Eybi8_myTooltipDelegate > div > div > div.fin-indicators-col1 > div > div > div:nth-child(1) > div > p.basic-text.fs-2.f-opensans-bold.text-center.c-blue-nb-2"
 
         //res.json({ dolar: $(selectorDolar).text() });
-        // console.log(data2);
-        console.log("dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        var reporteRigel={}
-        reporteRigel.inoperativos = data
-        reporteRigel.inoperativosItsTotal = areaItTotal
-        reporteRigel.inoperativosTecnologia = dataTecnologia
-        reporteRigel.inoperativosSirci = dataSirci
-        //reporteRigel.datos2 = data2
-        console.log(reporteRigel);
-        
-        //agregar data suma de areas
-        const arr = reporteRigel.inoperativos.data
-        console.log(arr)
-        var inoperativosSuma = arr.reduce( (acc, arr) => (acc[arr.system_name] = (acc[arr.system_name] || 0) + 1, acc), {} );
-        console.log(inoperativosSuma)    
-        reporteRigel.inoperativosSuma = inoperativosSuma
-
-        //respuesta json
-        res.json({ reporteRigel });
+        res.json({ data });
     } catch (error) {
         res.json({error})
     }
 })
 
 const PORT = process.env.PORT || 5000
-app.listen(PORT, () => console.log(`server de API-rigel activo en puerto 👉: http://localhost:${PORT}`))
+app.listen(PORT, () => console.log("server de API-rigel activo en puerto 👉: " + PORT))

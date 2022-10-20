@@ -40,9 +40,10 @@ app.get("/", cors(), async (req, res) => {
         //agregar data suma de areas
         const arr = reporteRigel.inoperativos.data
         console.log(arr)
-        var inoperativosSuma = arr.reduce( (acc, arr) => (acc[arr.system_name] = (acc[arr.system_name] || 0) + 1, acc), {} );
-        console.log(inoperativosSuma)    
-        reporteRigel.inoperativosSuma = inoperativosSuma
+        let inoperativosSuma = arr.reduce( (acc, arr) => (acc[arr.system_name] = (acc[arr.system_name] || 0) + 1, acc), {} );
+        let inoperativosSuma2 = Object.entries(inoperativosSuma)
+        console.log(inoperativosSuma2)    
+        reporteRigel.inoperativosSuma = inoperativosSuma2
 
         //respuesta json
         res.json({ reporteRigel });

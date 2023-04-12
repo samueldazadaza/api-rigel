@@ -28,21 +28,21 @@ app.get("/", cors(), async (req, res) => {
 
         //res.json({ dolar: $(selectorDolar).text() });
         // console.log(data2);
-        console.log("dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        console.log("🎯😎😎Respuesta exitosa del backend");
         var reporteRigel={}
         reporteRigel.inoperativos = data
         reporteRigel.inoperativosItsTotal = areaItTotal
         reporteRigel.inoperativosTecnologia = dataTecnologia
         reporteRigel.inoperativosSirci = dataSirci
         //reporteRigel.datos2 = data2
-        console.log(reporteRigel);
+        console.log("reporteRigel");
         
         //agregar data suma de areas
         const arr = reporteRigel.inoperativos.data
-        console.log(arr)
+        console.log("arr")
         let inoperativosSuma = arr.reduce( (acc, arr) => (acc[arr.system_name] = (acc[arr.system_name] || 0) + 1, acc), {} );
         let inoperativosSuma2 = Object.entries(inoperativosSuma)
-        console.log(inoperativosSuma2)    
+        console.log("inoperativosSuma2")    
         reporteRigel.inoperativosSuma = inoperativosSuma2
 
         //respuesta json

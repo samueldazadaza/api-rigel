@@ -10,7 +10,7 @@ const corsOptions = { // para quitar problema de cors
 
 
 app.get("/", cors(), async (req, res) => {
-    console.log("1️⃣entro al try😎")
+    //console.log("1️⃣entro al try😎")
     try {
         //const {data} = await axios.get("https://www.bcentral.cl/inicio")
         const {data} = await axios.get("http://rigel.greenmovil.com.co:8080/RigelpbWS/disponibilidadFlota/todos?key=JM8xH8zNHX7XGsUe8rkDf")
@@ -28,14 +28,14 @@ app.get("/", cors(), async (req, res) => {
 
         //res.json({ dolar: $(selectorDolar).text() });
         // console.log(data2);
-        console.log("2️⃣Respuesta exitosa del backend🎯 filtrado por its y sirci");
+        //console.log("2️⃣Respuesta exitosa del backend🎯 filtrado por its y sirci");
         var reporteRigel={}
         reporteRigel.inoperativos = data
         reporteRigel.inoperativosItsTotal = areaItTotal
         reporteRigel.inoperativosTecnologia = dataTecnologia
         reporteRigel.inoperativosSirci = dataSirci
         //reporteRigel.datos2 = data2
-        console.log("3️⃣se crea los 4 arrays de reporteRigel");
+        //console.log("3️⃣se crea los 4 arrays de reporteRigel");
         
         //agregar data suma de areas
         const arr = reporteRigel.inoperativos.data
@@ -47,7 +47,7 @@ app.get("/", cors(), async (req, res) => {
 
         //respuesta json
         res.json({ reporteRigel });
-        console.log("4️⃣🏃‍♀️🎃🎃🎃Se genera respuesta exitosa en json")
+        //console.log("4️🎃🎃🎃Se genera respuesta exitosa en json")
     } catch (error) {
         res.json({error})
     }

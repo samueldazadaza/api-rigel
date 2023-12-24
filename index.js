@@ -47,7 +47,7 @@ app.get("/", cors(), async (req, res) => {
 
         //respuesta json
         res.json({ reporteRigel });
-        //console.log("4️🎃🎃🎃Se genera respuesta exitosa en json")
+        console.log("🎃Se genera respuesta exitosa en json")
     } catch (error) {
         res.json({error})
     }

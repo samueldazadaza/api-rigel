@@ -10,7 +10,7 @@ const corsOptions = { // para quitar problema de cors
 
 
 app.get("/", cors(), async (req, res) => {
-    console.log("entro al try😎")
+    console.log("1️⃣entro al try😎")
     try {
         //const {data} = await axios.get("https://www.bcentral.cl/inicio")
         const {data} = await axios.get("http://rigel.greenmovil.com.co:8080/RigelpbWS/disponibilidadFlota/todos?key=JM8xH8zNHX7XGsUe8rkDf")
@@ -28,18 +28,18 @@ app.get("/", cors(), async (req, res) => {
 
         //res.json({ dolar: $(selectorDolar).text() });
         // console.log(data2);
-        console.log("🎯😎😎Respuesta exitosa del backend");
+        console.log("2️⃣Respuesta exitosa del backend🎯 filtrado por its y sirci");
         var reporteRigel={}
         reporteRigel.inoperativos = data
         reporteRigel.inoperativosItsTotal = areaItTotal
         reporteRigel.inoperativosTecnologia = dataTecnologia
         reporteRigel.inoperativosSirci = dataSirci
         //reporteRigel.datos2 = data2
-        console.log("reporteRigel");
+        console.log("3️⃣se crea los 4 arrays de reporteRigel");
         
         //agregar data suma de areas
         const arr = reporteRigel.inoperativos.data
-        console.log("arr")
+        //console.log("arr")
         let inoperativosSuma = arr.reduce( (acc, arr) => (acc[arr.system_name] = (acc[arr.system_name] || 0) + 1, acc), {} );
         let inoperativosSuma2 = Object.entries(inoperativosSuma)
         console.log("inoperativosSuma2")    
@@ -47,10 +47,11 @@ app.get("/", cors(), async (req, res) => {
 
         //respuesta json
         res.json({ reporteRigel });
+        console.log("4️⃣🏃‍♀️Se genera respuesta exitosa en json")
     } catch (error) {
         res.json({error})
     }
 })
 
 const PORT = process.env.PORT || 5000
-app.listen(PORT, () => console.log(`server de API-rigel activo en puerto 👉: http://localhost:${PORT}`))
+app.listen(PORT, () => console.log(`✨SE ACTIVA SERVIDOR✨ server de API-rigel activo en puerto 👉: http://localhost:${PORT}`))

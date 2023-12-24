@@ -42,12 +42,12 @@ app.get("/", cors(), async (req, res) => {
         //console.log("arr")
         let inoperativosSuma = arr.reduce( (acc, arr) => (acc[arr.system_name] = (acc[arr.system_name] || 0) + 1, acc), {} );
         let inoperativosSuma2 = Object.entries(inoperativosSuma)
-        console.log("inoperativosSuma2")    
+        //console.log("inoperativosSuma2")    
         reporteRigel.inoperativosSuma = inoperativosSuma2
 
         //respuesta json
         res.json({ reporteRigel });
-        console.log("4️⃣🏃‍♀️Se genera respuesta exitosa en json")
+        console.log("4️⃣🏃‍♀️🎃🎃🎃Se genera respuesta exitosa en json")
     } catch (error) {
         res.json({error})
     }

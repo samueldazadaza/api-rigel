@@ -2,9 +2,12 @@
 
 Api rigel live
 
-https://api-rigel.herokuapp.com/
+
 
 ---
 
-srver actual :
+server actual :
+https://cute-gold-toad-vest.cyclic.app/
+---
+antes:
 https://apir2.onrender.com
